@@ -12,6 +12,7 @@ const Classroom = models.classroom
 const mapReservations = async (reservations) => {
   const room = await Classroom.getById(reservations.classroom_id)  
   return {
+    id: reservations.id,
     classroom: room.name + ' (' + room.location + ')',
     date: reservations.start_date.toLocaleDateString(),
     start_time: reservations.start_date.toLocaleTimeString(),
